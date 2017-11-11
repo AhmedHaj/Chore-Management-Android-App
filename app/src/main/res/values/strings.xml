@@ -3,4 +3,10 @@
     <string name="action_settings">Settings</string>
     <string name="chore_application">Chore Application</string>
     <string name="getStarted">Get Started!</string>
+    <string name="number_of_users">Number of users:</string>
+    <string name="toggle_reward_system">Reward System</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="gettingStarted">Getting Started!</string>
+    <string name="number_of_children">Number of children:</string>
+    <string name="number_of_regular">Number of regular:</string>
 </resources>
