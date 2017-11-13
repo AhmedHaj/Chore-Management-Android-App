@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickBtnAbout(View v){
+        Intent intent = new Intent(this, AboutUsActivity.class); //intent is used to launch another activity
+        startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

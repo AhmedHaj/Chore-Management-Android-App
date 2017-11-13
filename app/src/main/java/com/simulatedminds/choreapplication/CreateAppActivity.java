@@ -8,9 +8,17 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class CreateAppActivity extends AppCompatActivity {
+
+    //instance variables
+    private int numberOfRegularUsers;
+    private int numberOfChildUsers;
+    private boolean rewardSystem = false;
+    private boolean passwordSystem = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +48,26 @@ public class CreateAppActivity extends AppCompatActivity {
             //method to change color when clicked
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // TODO Auto-generated method stub
-                if(isChecked)
+                if(isChecked) {
                     buttonView.setBackgroundColor(Color.GREEN);
-                else buttonView.setBackgroundColor(Color.RED);
+                    setRewardSystem(true);
+                } else {
+                    buttonView.setBackgroundColor(Color.RED);
+                    setRewardSystem(false);
+                }
             }
         });
         passwordToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             //method to change color when clicked
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // TODO Auto-generated method stub
-                if(isChecked)
+                if(isChecked) {
                     buttonView.setBackgroundColor(Color.GREEN);
-                else buttonView.setBackgroundColor(Color.RED);
+                    setPasswordSystem(true);
+                } else {
+                    buttonView.setBackgroundColor(Color.RED);
+                    setPasswordSystem(false);
+                }
             }
         });
     }
@@ -63,7 +79,57 @@ public class CreateAppActivity extends AppCompatActivity {
     }
 
     public void onClickBtnNext(View v){
-        Intent intent = new Intent(this, AccountCreationActivity.class); //intent is used to launch another activity
-        startActivity(intent);
+        //gets spinners and store them in these variables
+        Spinner myRegularUserSpinner=(Spinner) findViewById(R.id.regularSpinner);
+        Spinner myChildUserSpinner=(Spinner) findViewById(R.id.childSpinner);
+
+        //store applicant's choice of # of users
+        int numberOfRegularUsersByApplicant = Integer.parseInt(myRegularUserSpinner.getSelectedItem().toString());
+        int numberOfChildUsersByApplicant = Integer.parseInt(myChildUserSpinner.getSelectedItem().toString());
+
+        //store applicant's choice of # of users in instance variables
+        setNumberOfRegularUsers(numberOfRegularUsersByApplicant);
+        setNumberOfChildUsers(numberOfChildUsersByApplicant);
+
+        //checks if there is at least one regular user to be able to go to the next activity
+        if (getNumberOfRegularUsers() > 0){
+            Intent intent = new Intent(this, AccountCreationActivity.class); //intent is used to launch another activity
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Number of regular users should be greatar than zero", Toast.LENGTH_LONG).show();
+        }
     }
+
+    public void setNumberOfRegularUsers(int users){
+        numberOfRegularUsers = users;
+    }
+
+    public void setNumberOfChildUsers(int users){
+        numberOfChildUsers = users;
+    }
+
+    public int getNumberOfRegularUsers(){
+        return numberOfRegularUsers;
+    }
+
+    public int getNumberOfChildUsers(){
+        return numberOfChildUsers;
+    }
+
+    public boolean getRewardSystem(){
+        return rewardSystem;
+    }
+
+    public boolean getPasswordSystem(){
+        return passwordSystem;
+    }
+
+    public void setRewardSystem(boolean choice) {
+        rewardSystem = choice;
+    }
+
+    public void setPasswordSystem(boolean choice){
+        passwordSystem = choice;
+    }
+
 }
