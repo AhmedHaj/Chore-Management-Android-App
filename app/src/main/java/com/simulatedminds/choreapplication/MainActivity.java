@@ -1,5 +1,6 @@
 package com.simulatedminds.choreapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    //method to use when getStarted gets clicked
+    public void onClickBtnGetStarted(View v){
+        Intent intent = new Intent(this, CreateAppActivity.class); //intent is used to launch another activity
+        startActivity(intent);
     }
 
     @Override

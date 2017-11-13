@@ -9,4 +9,7 @@
     <string name="gettingStarted">Getting Started!</string>
     <string name="number_of_children">Number of children:</string>
     <string name="number_of_regular">Number of regular:</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="password_protection">Password Protection</string>
 </resources>

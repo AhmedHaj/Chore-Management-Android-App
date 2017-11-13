@@ -1,8 +1,10 @@
 package com.simulatedminds.choreapplication;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
@@ -31,9 +33,10 @@ public class CreateAppActivity extends AppCompatActivity {
 
         //code found at https://stackoverflow.com/questions/11978880/how-to-change-color-of-the-toggle-button
         //get id of button from XML layout and set it to Btn
-        ToggleButton Btn = (ToggleButton) findViewById(R.id.toggleButtonOfRewardSystem);
+        ToggleButton rewardToggleButton = (ToggleButton) findViewById(R.id.toggleButtonOfRewardSystem);
+        ToggleButton passwordToggleButton = (ToggleButton) findViewById(R.id.toggleButtonOfPasswordProtection);
         //Guessing that this function is to see if the button gets clicked do something to it
-        Btn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rewardToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             //method to change color when clicked
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // TODO Auto-generated method stub
@@ -42,5 +45,25 @@ public class CreateAppActivity extends AppCompatActivity {
                 else buttonView.setBackgroundColor(Color.RED);
             }
         });
+        passwordToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            //method to change color when clicked
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // TODO Auto-generated method stub
+                if(isChecked)
+                    buttonView.setBackgroundColor(Color.GREEN);
+                else buttonView.setBackgroundColor(Color.RED);
+            }
+        });
+    }
+
+    //method to use when getStarted gets clicked
+    public void onClickBtnBack(View v){
+        Intent intent = new Intent(this, MainActivity.class); //intent is used to launch another activity
+        startActivity(intent);
+    }
+
+    public void onClickBtnNext(View v){
+        Intent intent = new Intent(this, AccountCreationActivity.class); //intent is used to launch another activity
+        startActivity(intent);
     }
 }

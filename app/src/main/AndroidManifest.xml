@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CreateAppActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,8 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- Change android:name to 'MainActivity' to go back to home page and uncomment below -->
-        <!--<activity android:name=".CreateAppActivity"></activity>-->
+        <activity android:name=".CreateAppActivity" />
+        <activity android:name=".AccountCreationActivity"></activity>
     </application>
 
 </manifest>
