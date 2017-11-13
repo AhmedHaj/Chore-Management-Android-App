@@ -96,10 +96,11 @@ public class CreateAppActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AccountCreationActivity.class); //intent is used to launch another activity
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Number of regular users should be greatar than zero", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Number of regular users should be greatar than zero", Toast.LENGTH_LONG).show(); //a way to print in an emulator
         }
     }
 
+    // ---------- Getters and Setters ----------
     public void setNumberOfRegularUsers(int users){
         numberOfRegularUsers = users;
     }
@@ -132,4 +133,5 @@ public class CreateAppActivity extends AppCompatActivity {
         passwordSystem = choice;
     }
 
+    //-------------------------------------------
 }

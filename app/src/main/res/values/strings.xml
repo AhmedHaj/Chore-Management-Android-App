@@ -13,4 +13,5 @@
     <string name="back">Back</string>
     <string name="password_protection">Password Protection</string>
     <string name="about_us">About US</string>
+    <string name="enter_name_here">Enter name here</string>
 </resources>
