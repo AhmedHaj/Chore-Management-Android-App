@@ -14,10 +14,10 @@ import android.widget.ToggleButton;
 public class CreateAppActivity extends AppCompatActivity {
 
     //instance variables
-    private int numberOfRegularUsers;
-    private int numberOfChildUsers;
-    private boolean rewardSystem = false;
-    private boolean passwordSystem = false;
+    private static int numberOfRegularUsers;
+    private static int numberOfChildUsers;
+    private static boolean rewardSystem = false;
+    private static boolean passwordSystem = false;
 
 
     @Override
@@ -101,35 +101,35 @@ public class CreateAppActivity extends AppCompatActivity {
     }
 
     // ---------- Getters and Setters ----------
-    public void setNumberOfRegularUsers(int users){
+    public static void setNumberOfRegularUsers(int users){
         numberOfRegularUsers = users;
     }
 
-    public void setNumberOfChildUsers(int users){
+    public static void setNumberOfChildUsers(int users){
         numberOfChildUsers = users;
     }
 
-    public int getNumberOfRegularUsers(){
+    public static int getNumberOfRegularUsers(){
         return numberOfRegularUsers;
     }
 
-    public int getNumberOfChildUsers(){
+    public static int getNumberOfChildUsers(){
         return numberOfChildUsers;
     }
 
-    public boolean getRewardSystem(){
+    public static boolean getRewardSystem(){
         return rewardSystem;
     }
 
-    public boolean getPasswordSystem(){
+    public static boolean getPasswordSystem(){
         return passwordSystem;
     }
 
-    public void setRewardSystem(boolean choice) {
+    public static void setRewardSystem(boolean choice) {
         rewardSystem = choice;
     }
 
-    public void setPasswordSystem(boolean choice){
+    public static void setPasswordSystem(boolean choice){
         passwordSystem = choice;
     }
 
