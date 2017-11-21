@@ -11,7 +11,7 @@ public class AccountCreationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_creation);
-        User[] users = new User[CreateAppActivity.getNumberOfRegularUsers()]; //makes an array of users
+        User[] users = new User[CreateAppActivity.getNumberOfRegularUsers() + CreateAppActivity.getNumberOfChildUsers()]; //makes an array of users
         ListAdapter accountToCreateAdapter = new AccountCreationAdapter(this, users);
         ListView listView = (ListView) findViewById(R.id.accountsToCreateList);
         listView.setAdapter(accountToCreateAdapter);
