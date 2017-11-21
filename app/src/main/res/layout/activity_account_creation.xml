@@ -54,10 +54,9 @@
             tools:layout_constraintTop_creator="1" />
 
         <Button
-            android:id="@+id/btn"
+            android:id="@+id/accountsCreationBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/next"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/accountsToCreateList" />
