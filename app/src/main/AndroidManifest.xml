@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".CreateAppActivity" />
         <activity android:name=".AccountCreationActivity" />
-        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".CreateChoreActivity"></activity>
     </application>
 
 </manifest>
