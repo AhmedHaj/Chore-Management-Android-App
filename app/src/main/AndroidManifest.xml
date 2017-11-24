@@ -22,7 +22,11 @@
         <activity android:name=".CreateAppActivity" />
         <activity android:name=".AccountCreationActivity" />
         <activity android:name=".AboutUsActivity" />
-        <activity android:name=".CreateChoreActivity"></activity>
+        <activity android:name=".CreateChoreActivity" />
+        <activity
+            android:name=".NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
