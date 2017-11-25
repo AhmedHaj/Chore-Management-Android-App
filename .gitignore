@@ -4,6 +4,7 @@ local.properties
 /.idea/workspace.xml
 /.idea/libraries
 /.idea/modules.xml
+/app/src/main/build.gradle
 .DS_Store
 /build
 /captures
