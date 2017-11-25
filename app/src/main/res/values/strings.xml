@@ -34,4 +34,13 @@
     <string name="name">Name</string>
     <string name="reset_points">Reset Points</string>
     <string name="rewardsusertally">RewardsUserTally</string>
+    <string name="settings">Settings</string>
+    <string name="add_regular_user">Add Regular User</string>
+    <string name="clear_all_chores">Clear all chores</string>
+    <string name="disable_reward_system">Disable Reward System</string>
+    <string name="chores">Chores:</string>
+    <string name="change_pin">Change pin</string>
+    <string name="add_reward_to_system">Add Reward to System</string>
+    <string name="add_child_user">Add Child User</string>
+    <string name="account">Account:</string>
 </resources>
