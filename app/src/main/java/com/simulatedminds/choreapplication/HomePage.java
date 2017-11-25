@@ -34,7 +34,6 @@ public class HomePage extends AppCompatActivity implements TabResources.OnFragme
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
 
 
             }
@@ -46,6 +45,7 @@ public class HomePage extends AppCompatActivity implements TabResources.OnFragme
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
 
             }
 
