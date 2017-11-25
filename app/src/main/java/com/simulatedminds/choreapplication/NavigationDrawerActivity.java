@@ -81,13 +81,13 @@ public class NavigationDrawerActivity extends AppCompatActivity
             // Handle the chore action
         } else if (id == R.id.nav_resources) {
 
-        } else if (id == R.id.nav_rewards) {
+        } else if (id == R.id.nav_profiles) {
 
         } else if (id == R.id.nav_settings) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_logout) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_aboutus) {
 
         }
 

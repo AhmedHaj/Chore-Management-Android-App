@@ -5,10 +5,5 @@
     tools:context="com.simulatedminds.choreapplication.TabResources">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Resources" />
 
 </RelativeLayout>
