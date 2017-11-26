@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".HomePage"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,7 +23,7 @@
         <activity android:name=".AccountCreationActivity" />
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".CreateChoreActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".HomePage" />
         <activity
             android:name=".NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"

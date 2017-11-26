@@ -6,7 +6,7 @@ package com.simulatedminds.choreapplication;
 
 public class User {
     //Instance variables
-    private String userName;
+    private String userName= ""; //empty username making sure not having null
 
     //setters and getters
     public void setUserName(String userName) {
