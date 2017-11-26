@@ -1,17 +1,14 @@
 package com.simulatedminds.choreapplication;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.List;
 
 public class AccountCreationActivity extends AppCompatActivity {
 
@@ -92,7 +89,7 @@ public class AccountCreationActivity extends AppCompatActivity {
                     }
                 }
             } else {
-                Intent intent = new Intent(this, HomePage.class); //intent is used to launch another activity, make this intent to go to homepage
+                Intent intent = new Intent(this, NavigationDrawerActivity.class); //intent is used to launch another activity, make this intent to go to homepage
                 startActivity(intent);
             }
         } else {

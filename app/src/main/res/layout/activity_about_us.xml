@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.simulatedminds.choreapplication.AboutUsActivity">
 
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 </android.support.constraint.ConstraintLayout>

@@ -1,16 +1,21 @@
 package com.simulatedminds.choreapplication;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class NavigationDrawerActivity extends HomePage implements NavigationView.OnNavigationItemSelectedListener {
+public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, TabResources.OnFragmentInteractionListener, TabChores.OnFragmentInteractionListener, TabProfiles.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +23,6 @@ public class NavigationDrawerActivity extends HomePage implements NavigationView
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -36,6 +32,45 @@ public class NavigationDrawerActivity extends HomePage implements NavigationView
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);
+        tabLayout.addTab(tabLayout.newTab().setText("Resources"));
+        tabLayout.addTab(tabLayout.newTab().setText("Chores"));
+        tabLayout.addTab(tabLayout.newTab().setText("Profiles"));
+
+        tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
+
+        final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
+        final PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+
+            }
+
+
+        });
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
     @Override
@@ -85,6 +120,8 @@ public class NavigationDrawerActivity extends HomePage implements NavigationView
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_aboutus) {
+            Intent intent = new Intent(this, AboutUsActivity.class); //intent is used to launch another activity, make this intent to go to homepage
+            startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
 
