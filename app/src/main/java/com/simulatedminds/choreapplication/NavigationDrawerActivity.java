@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, TabResources.OnFragmentInteractionListener, TabChores.OnFragmentInteractionListener, TabProfiles.OnFragmentInteractionListener {
 
@@ -111,16 +110,25 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_chores) {
-            Toast.makeText(this, "The Mistbelt Forests", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_resources) {
+        if (id == R.id.nav_resources) {
+            ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
+            viewPager.setCurrentItem(0);
+
+        } else if (id == R.id.nav_chores) {
+
+            ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
+            viewPager.setCurrentItem(1);
 
         } else if (id == R.id.nav_rewardsusertally) {
+            ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
+            viewPager.setCurrentItem(2);
 
         } else if (id == R.id.nav_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class); //intent is used to launch another activity, in this case it launches About Us
+            startActivity(intent);
 
         } else if (id == R.id.nav_aboutus) {
-            Intent intent = new Intent(this, AboutUsActivity.class); //intent is used to launch another activity, make this intent to go to homepage
+            Intent intent = new Intent(this, AboutUsActivity.class); //intent is used to launch another activity, in this case it launches About Us
             startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
