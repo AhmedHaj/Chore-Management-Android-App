@@ -1,0 +1,14 @@
+<!--The recycler view basically saves memory when running by only creating
+child views that are able to fit in the screen. So for a list of 100, it
+would only create 12(example) at a time. To be able to use this be sure to add
+recyclerviewv7 dependency on your android studio!
+File -> Project Structure select app module, then dependencies tab. Use +
+button and choose library dependency to add a dependency.
+
+Find recyclerview-v7 and click ok to add the library as a dependency
+-->
+<android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chore_recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />

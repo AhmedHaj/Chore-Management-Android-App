@@ -29,6 +29,16 @@
     <string name="title_activity_home_page">HomePageActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
+    <!-- Strings for chores -->
+    <string name="chore_title_hint">Enter a title for the chore.</string>
+    <string name="chore_title_label">Title</string>
+    <string name="chore_details_label">Details</string>
+    <string name="chore_details_hint">Enter details of the chore</string>
+    <string name="chore_completed_label">Completed</string>
+    <string name="date_picker_title">Due date of chore</string>
+    <string name="new_chore">New Chore</string>
+    <string name= "remove_chore">Remove Chore</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name">Name</string>

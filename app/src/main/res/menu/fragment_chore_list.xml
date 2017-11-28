@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- delete chore added in the window of chore creation for simplicity -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/new_chore"
+        android:icon="@drawable/ic_add_chore"
+        android:title="@string/new_chore"
+        app:showAsAction="ifRoom|withText"/>
+
+</menu>
