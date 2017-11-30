@@ -118,6 +118,8 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 
             ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
             viewPager.setCurrentItem(1);
+            Intent intent = new Intent(this, ChoreListActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_rewardsusertally) {
             ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
