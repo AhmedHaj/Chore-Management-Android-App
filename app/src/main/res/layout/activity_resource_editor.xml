@@ -102,6 +102,13 @@
                 android:text="Save"
                 android:id="@+id/buttonSave"
                 android:layout_gravity="center_horizontal" />
+
+            <Button
+                android:id="@+id/buttonDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Delete" />
         </LinearLayout>
 
     </LinearLayout>

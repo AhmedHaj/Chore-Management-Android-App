@@ -21,10 +21,14 @@ public class ResourceManager {
                 "Soap", "Water", "Vacuum", "Broom", "Sponge", "Bucket"
         };
 
+        String[] descriptions = new String[]{
+                "Soapy", "Wet", "Suck", "Sweep", "Squeeze", "What?"
+        };
+
         resourceList = new ArrayList<>();
 
         for (int i = 0; i < values.length ; i++) {
-            Resource newResource = new Resource(values[i],"Resource Description has not been defined.");
+            Resource newResource = new Resource(values[i],descriptions[i]);
             resourceList.add(newResource);
         }
     }
