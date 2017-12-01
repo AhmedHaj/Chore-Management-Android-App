@@ -25,7 +25,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         switch(position) {
 
             case 0:
-                TabResources resourceList = new TabResources();
+                ResourceListActivity resourceList = new ResourceListActivity();
                 return resourceList;
             case 1:
                 ChoreListActivity choreList = new ChoreListActivity();
