@@ -16,7 +16,6 @@ public class CreateAppActivity extends AppCompatActivity {
     //instance variables
     private static int numberOfRegularUsers;
     private static int numberOfChildUsers;
-    private static boolean rewardSystem = false;
     private static boolean passwordSystem = false;
 
 
@@ -41,22 +40,7 @@ public class CreateAppActivity extends AppCompatActivity {
 
         //code found at https://stackoverflow.com/questions/11978880/how-to-change-color-of-the-toggle-button
         //get id of button from XML layout and set it to Btn
-        ToggleButton rewardToggleButton = (ToggleButton) findViewById(R.id.toggleButtonOfRewardSystem);
         ToggleButton passwordToggleButton = (ToggleButton) findViewById(R.id.toggleButtonOfPasswordProtection);
-        //Guessing that this function is to see if the button gets clicked do something to it
-        rewardToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            //method to change color when clicked
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // TODO Auto-generated method stub
-                if(isChecked) {
-                    buttonView.setBackgroundColor(Color.GREEN);
-                    setRewardSystem(true);
-                } else {
-                    buttonView.setBackgroundColor(Color.RED);
-                    setRewardSystem(false);
-                }
-            }
-        });
         passwordToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             //method to change color when clicked
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -117,16 +101,10 @@ public class CreateAppActivity extends AppCompatActivity {
         return numberOfChildUsers;
     }
 
-    public static boolean getRewardSystem(){
-        return rewardSystem;
-    }
+
 
     public static boolean getPasswordSystem(){
         return passwordSystem;
-    }
-
-    public static void setRewardSystem(boolean choice) {
-        rewardSystem = choice;
     }
 
     public static void setPasswordSystem(boolean choice){

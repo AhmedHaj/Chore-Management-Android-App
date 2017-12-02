@@ -1,17 +1,14 @@
 package com.simulatedminds.choreapplication;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.List;
 
 public class AccountCreationActivity extends AppCompatActivity {
 
@@ -35,7 +32,7 @@ public class AccountCreationActivity extends AppCompatActivity {
     //method to set the text of button id accountsCreationBtn
     private void setCorrectTextOfButton(){
         Button btn = (Button) findViewById(R.id.accountsCreationBtn);
-        if(CreateAppActivity.getPasswordSystem() || CreateAppActivity.getRewardSystem()){
+        if(CreateAppActivity.getPasswordSystem()){
             btn.setText("Next");
         } else {
             btn.setText("Finish");
@@ -82,14 +79,9 @@ public class AccountCreationActivity extends AppCompatActivity {
         getUserInputAndStoreIt();
         if (checkAllUsersForName()) { //checkAllUsersForName()
             if (button.getText().toString().toLowerCase().equals("next")) {
-                if (CreateAppActivity.getPasswordSystem() || CreateAppActivity.getRewardSystem()) {
-                    if (CreateAppActivity.getPasswordSystem()) {
-                        Intent intent = new Intent(this, PasswordCreationActivity.class); //intent is used to launch another activity, make this intent to get passwords from users
-                        startActivity(intent);
-                    } else if (CreateAppActivity.getRewardSystem()) {
-                        Intent intent = new Intent(this, RewardSystemActivity.class); //intent is used to launch another activity, make this intent to get reward system from users
-                        startActivity(intent);
-                    }
+                if (CreateAppActivity.getPasswordSystem()) {
+                    Intent intent = new Intent(this, PasswordCreationActivity.class); //intent is used to launch another activity, make this intent to get passwords from users
+                    startActivity(intent);
                 }
             } else {
                 Intent intent = new Intent(this, NavigationDrawerActivity.class); //intent is used to launch another activity, make this intent to go to homepage

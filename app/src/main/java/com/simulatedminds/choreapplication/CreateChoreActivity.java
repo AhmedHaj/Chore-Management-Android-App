@@ -27,20 +27,30 @@ public class CreateChoreActivity extends AppCompatActivity {
     }
 
 
-    public void onClickBtnChoreFinish (View v) {
-        //Toast.makeText(this, "I am in here", Toast.LENGTH_LONG).show();
+    public void onClickBtnChoreFinish (View v) throws NumberFormatException{
+        boolean rewardNotAnInteger = true;
         EditText choreTitle = (EditText) findViewById(R.id.enterChoreTitle);
         EditText choreDescription = (EditText) findViewById(R.id.enterChoreDescription);
         EditText customReward = (EditText) findViewById(R.id.enterReward);
         EditText choreResource1 = (EditText) findViewById(R.id.enterResource1);
         EditText choreResource2 = (EditText) findViewById(R.id.enterResource2);
         EditText choreResource3 = (EditText) findViewById(R.id.enterResource3);
-        //TextView chore1 = (TextView) findViewById(R.id.chore);
 
-
-
-        if(choreTitle.getText().toString().equals("")){ //need to figure out how to make this exception
-            Toast.makeText(this, "You have to have at least a chore title!", Toast.LENGTH_LONG).show(); //a way to print in an emulator
+        try {
+            rewardNotAnInteger = false;
+            Integer.parseInt(customReward.getText().toString());
+        } catch (NumberFormatException e) {
+            if (!customReward.getText().toString().equals("")){
+                Toast.makeText(this, "Chore reward must be an integer!", Toast.LENGTH_LONG).show();
+                rewardNotAnInteger = true;
+            } else {
+                rewardNotAnInteger = false;
+                customReward.setText("0");
+            }
+        }
+        if(choreTitle.getText().toString().equals("") || rewardNotAnInteger){ //need to figure out how to make this exception
+            if(choreTitle.getText().toString().equals(""))
+                Toast.makeText(this, "You have to have at least a chore title!", Toast.LENGTH_LONG).show(); //a way to print in an emulator
         } else {
             String[] choreResources = new String[3];
             choreResources[0] = choreResource1.getText().toString();
@@ -53,10 +63,12 @@ public class CreateChoreActivity extends AppCompatActivity {
 
             ChoreListActivity2.choreList = newChoreList;
             ChoreListActivity2.choreList[position] = new Chore2(choreTitle.getText().toString(),
-                    choreDescription.getText().toString(), customReward.getText().toString(), choreResources);
-            Intent intent = new Intent(this, NavigationDrawerActivity.class); //intent is used to launch another activity, make this intent to go to homepage
+                    choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources);
+            Intent intent = new Intent(this, ChoreListActivity.class); //intent is used to launch another activity, make this intent to go to homepage
             startActivity(intent);
         }
+
+
     }
 
 

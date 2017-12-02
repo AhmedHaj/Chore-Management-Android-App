@@ -9,10 +9,10 @@ public class Chore2 {
     private String choreDescription = " ";
     private String[] choreResources;
     private String[] assignedUsers;
-    private String choreReward = " ";
+    private int choreReward = 0;
 
 
-    public Chore2(String choreTitle, String choreDescription, String choreReward, String[] choreResources) {
+    public Chore2(String choreTitle, String choreDescription, int choreReward, String[] choreResources) {
         //to be added as last parameter  String[] assignedUsers
         this.choreTitle = choreTitle;
         this.choreDescription = choreDescription;
@@ -28,7 +28,7 @@ public class Chore2 {
     public String getChoreDescription(){
         return choreDescription;
     }
-    public String getChoreReward(){
+    public int getChoreReward(){
         return choreReward;
     }
     public String[] getAssignedUsers(){
@@ -37,7 +37,7 @@ public class Chore2 {
     public String[] getChoreResources(){
         return choreResources;
     }
-    public void setChoreReward(String reward){
+    public void setChoreReward(int reward){
         choreReward = reward;
     }
     public void setChoreTitle(String title){

@@ -35,8 +35,7 @@ public class CreateChoreAdapter extends ArrayAdapter<Chore2> {
         //
         if (!chores[position].getChoreDescription().equals(""))
             reallyLongString += "Chore Description: " + chores[position].getChoreDescription() + "\n";
-        if (!chores[position].getChoreReward().equals(""))
-            reallyLongString += "Reward: " + chores[position].getChoreReward() + "\n";
+        reallyLongString += "Reward: " + Integer.toString(chores[position].getChoreReward()) + "\n";
 
         for(int j = 0; j < chores[position].getChoreResources().length; j++){  //checking if there is resources
             if(!chores[position].getChoreResources()[j].equals(""))
@@ -45,7 +44,6 @@ public class CreateChoreAdapter extends ArrayAdapter<Chore2> {
         choreDetails.setText(reallyLongString);
         return customView;
     }
-
 
 
 

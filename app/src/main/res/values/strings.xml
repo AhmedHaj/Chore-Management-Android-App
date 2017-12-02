@@ -59,4 +59,5 @@
     <string name="enter_reward_5">Enter reward 5!</string>
     <string name="enter_reward_4">Enter reward 4!</string>
     <string name="the_chore_app_is_developed_by_five_members_in_university_of_ottawa_students_in_seg_2105_jonathan_calles_gallegos_james_lee_ahmed_haj_abdel_khaleq_ariel_kim_and_hussein_sakr">The chore app is developed by five members in University of Ottawa students in SEG 2105. Jonathan Calles-Gallegos, James Lee, Ahmed Haj Abdel Khaleq, Ariel Kim, and Hussein Sakr</string>
+    <string name="set_amount_of_points_reward">Set amount of points reward!</string>
 </resources>

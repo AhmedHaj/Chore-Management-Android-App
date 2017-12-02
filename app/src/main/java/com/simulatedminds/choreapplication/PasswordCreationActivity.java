@@ -18,20 +18,9 @@ public class PasswordCreationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_creation);
-        setCorrectTextOfButton();
         ListAdapter passwordsToCreateAdapter = new PasswordCreationAdapter(this, this.users);
         ListView listView = (ListView) findViewById(R.id.passwordsToCreateList);
         listView.setAdapter(passwordsToCreateAdapter);
-    }
-
-
-    private void setCorrectTextOfButton(){ //method to set correct text of button
-        Button btn = (Button) findViewById(R.id.passwordsCreationBtn);
-        if(CreateAppActivity.getRewardSystem()){
-            btn.setText("Next");
-        } else {
-            btn.setText("Finish");
-        }
     }
 
     //sets the passwords into instance objects made
@@ -71,13 +60,8 @@ public class PasswordCreationActivity extends AppCompatActivity {
         //set all stuff written to user objects
         getUserInputAndStoreIt();
         if (checkAllUsersForPassword()) { //checkAllUsersForName()
-            if (button.getText().toString().toLowerCase().equals("next")) {
-                Intent intent = new Intent(this, RewardSystemActivity.class); //intent is used to launch another activity, make this intent to get reward system from users
-                startActivity(intent);
-            } else {
-                Intent intent = new Intent(this, NavigationDrawerActivity.class); //intent is used to launch another activity, make this intent to get reward system from users
-                startActivity(intent);
-            }
+            Intent intent = new Intent(this, NavigationDrawerActivity.class); //intent is used to launch another activity, make this intent to get reward system from users
+            startActivity(intent);
         } else {
             Toast.makeText(this, "Passwords have to be unique and exist", Toast.LENGTH_LONG).show(); //a way to print in an emulator
         }
