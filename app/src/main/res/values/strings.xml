@@ -43,4 +43,20 @@
     <string name="add_reward_to_system">Add Reward to System</string>
     <string name="add_child_user">Add Child User</string>
     <string name="account">Account:</string>
+    <string name="chore_list">Chore List!</string>
+    <string name="finish">Finish</string>
+    <string name="resources">Resources:</string>
+    <string name="star">*</string>
+    <string name="enter_first_resource">Enter first resource!</string>
+    <string name="enter_second_resource">Enter second resource!</string>
+    <string name="enter_third_resource">Enter third resource!</string>
+    <string name="set_your_passwords">Set your Passwords!</string>
+    <string name="enter_password_here">Enter password here!</string>
+    <string name="enter_default_rewards">Enter default rewards:</string>
+    <string name="enter_reward_1">Enter reward 1!</string>
+    <string name="enter_reward_2">Enter reward 2!</string>
+    <string name="enter_reward_3">Enter reward 3!</string>
+    <string name="enter_reward_5">Enter reward 5!</string>
+    <string name="enter_reward_4">Enter reward 4!</string>
+    <string name="the_chore_app_is_developed_by_five_members_in_university_of_ottawa_students_in_seg_2105_jonathan_calles_gallegos_james_lee_ahmed_haj_abdel_khaleq_ariel_kim_and_hussein_sakr">The chore app is developed by five members in University of Ottawa students in SEG 2105. Jonathan Calles-Gallegos, James Lee, Ahmed Haj Abdel Khaleq, Ariel Kim, and Hussein Sakr</string>
 </resources>

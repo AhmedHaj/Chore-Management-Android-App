@@ -1,18 +1,22 @@
 package com.simulatedminds.choreapplication;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class AccountCreationActivity extends AppCompatActivity {
 
-    private User[] users;
+    public static User[] users;
+    public static int sizeOfUsersArray = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,7 @@ public class AccountCreationActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.accountsToCreateList);
         listView.setAdapter(accountToCreateAdapter);
         this.users = users;
+        this.sizeOfUsersArray = users.length;
     }
 
     //method to set the text of button id accountsCreationBtn
@@ -77,14 +82,12 @@ public class AccountCreationActivity extends AppCompatActivity {
         getUserInputAndStoreIt();
         if (checkAllUsersForName()) { //checkAllUsersForName()
             if (button.getText().toString().toLowerCase().equals("next")) {
-                if (CreateAppActivity.getPasswordSystem() || CreateAppActivity.getPasswordSystem()) {
+                if (CreateAppActivity.getPasswordSystem() || CreateAppActivity.getRewardSystem()) {
                     if (CreateAppActivity.getPasswordSystem()) {
-                        Intent intent = new Intent(this, AccountCreationActivity.class); //intent is used to launch another activity, make this intent to get passwords from users
+                        Intent intent = new Intent(this, PasswordCreationActivity.class); //intent is used to launch another activity, make this intent to get passwords from users
                         startActivity(intent);
-                    }
-
-                    if (CreateAppActivity.getRewardSystem()) {
-                        Intent intent = new Intent(this, AccountCreationActivity.class); //intent is used to launch another activity, make this intent to get reward system from users
+                    } else if (CreateAppActivity.getRewardSystem()) {
+                        Intent intent = new Intent(this, RewardSystemActivity.class); //intent is used to launch another activity, make this intent to get reward system from users
                         startActivity(intent);
                     }
                 }
