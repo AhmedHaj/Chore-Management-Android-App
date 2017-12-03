@@ -43,7 +43,6 @@ public class AccountCreationAdapter extends ArrayAdapter<User>{
         accountText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                users[position].getUserName();
             }
 
             @Override

@@ -18,7 +18,7 @@ public class ChoreEditorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chore_editor);
+        setContentView(R.layout.activity_chore_editor); // The layout is being modified
 
         //Getting the incomming intent
         Intent intent = getIntent();

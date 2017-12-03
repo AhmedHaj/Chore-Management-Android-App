@@ -7,10 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
 
 public class ChoreListActivity2 extends Fragment {
 
@@ -29,7 +30,14 @@ public class ChoreListActivity2 extends Fragment {
         ListAdapter choreListAdapter = new CreateChoreAdapter(getActivity(), this.choreList);
         ListView listView = (ListView) getView().findViewById(R.id.choreList);
         listView.setAdapter(choreListAdapter);
-        Toast.makeText(getActivity(), Integer.toString(sizeOfChoreList), Toast.LENGTH_LONG).show();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {//Enables items in the list to react to clicks
+                Chore2 chore = (Chore2)adapterView.getItemAtPosition(i); //To be used to pass data to the intent
+                Intent intent = new Intent(getActivity(), ChoreEditorActivity.class);
+                startActivity(intent);
+            }
+        });
         Button button = (Button) view.findViewById(R.id.createChoreBtn);
         button.setOnClickListener(new View.OnClickListener()
         {
@@ -42,5 +50,7 @@ public class ChoreListActivity2 extends Fragment {
         });
 
     }
+
+
 
 }

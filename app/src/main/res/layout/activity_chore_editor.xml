@@ -66,6 +66,25 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/line03"
+                    android:layout_width="fill_parent"
+                    android:layout_height="26sp"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:text="Chore Details"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/line04"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40sp"
+                    android:hint="Insert Tagline Here!"
+                    android:text="Chore Details"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
             </LinearLayout>
 
             <ImageView
@@ -84,24 +103,24 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cancel"
                 android:id="@+id/buttonCancel"
-                android:layout_gravity="center_horizontal" />
-
-            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save"
+                android:layout_gravity="center_horizontal"
+                android:text="Cancel"/>
+
+            <Button
                 android:id="@+id/buttonSave"
-                android:layout_gravity="center_horizontal" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Save"/>
         </LinearLayout>
 
     </LinearLayout>

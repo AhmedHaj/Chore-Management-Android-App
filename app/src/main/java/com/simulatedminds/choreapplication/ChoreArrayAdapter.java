@@ -27,6 +27,7 @@ public class ChoreArrayAdapter extends ArrayAdapter<Chore>  {
     private final Context context;
     private final ArrayList<Chore> chores;
 
+
     public ChoreArrayAdapter(Context context, ArrayList<Chore> values) {
         super(context, R.layout.chore_item_layout, values);
         this.context = context;

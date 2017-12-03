@@ -22,6 +22,7 @@ public class CreateChoreAdapter extends ArrayAdapter<Chore2> {
         this.chores = chores;
     }
 
+
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {

@@ -64,7 +64,7 @@ public class CreateChoreActivity extends AppCompatActivity {
             ChoreListActivity2.choreList = newChoreList;
             ChoreListActivity2.choreList[position] = new Chore2(choreTitle.getText().toString(),
                     choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources);
-            Intent intent = new Intent(this, ChoreListActivity.class); //intent is used to launch another activity, make this intent to go to homepage
+            Intent intent = new Intent(this, NavigationDrawerActivity.class); //The reason it was crashing before was because ChoreListActivity2 is a fragment, and it was trying to call that.
             startActivity(intent);
         }
 
