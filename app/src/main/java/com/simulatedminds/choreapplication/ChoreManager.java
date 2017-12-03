@@ -14,21 +14,13 @@ public class ChoreManager {
 
     public static final String intentIndexTitle = "selectedChore";
     private static ChoreManager instance = null;
-    private ArrayList<Chore> choreList;
+    private ArrayList<Chore2> choreList;
 
     protected ChoreManager() {
         //This Exists to defeat instantiation
 
-        String[] values = new String[]{
-                "Wash Car", "Walk the Dog", "Make Dinner", "Vacuum", "Take out the Trash", "Feed the Cat", "Do the Dishes", "Pay the bills", "Clean the bathroom", "Go Grocery Shopping"
-        };
-
         choreList = new ArrayList<>();
 
-        for (int i = 0; i < values.length ; i++) {
-            Chore newChore = new Chore(values[i],"Chore Description has not been defined.");
-            choreList.add(newChore);
-        }
     }
 
     public static ChoreManager getInstance() {
@@ -38,11 +30,15 @@ public class ChoreManager {
         return instance;
     }
 
-    public ArrayList<Chore> getChoreList() {
+    public void addChore(Chore2 c){
+        choreList.add(c);
+    }
+
+    public ArrayList<Chore2> getChoreList() {
         return choreList;
     }
 
-    public Chore getChoreAt(int index) {
+    public Chore2 getChoreAt(int index) {
         return choreList.get(index);
     }
 }

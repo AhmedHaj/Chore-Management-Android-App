@@ -15,19 +15,19 @@ import android.widget.ListView;
 
 public class ChoreListActivity2 extends Fragment {
 
-    public static int sizeOfChoreList = 0;
-    public static Chore2[] choreList = new Chore2[sizeOfChoreList];
+    private ChoreManager manager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        manager = ChoreManager.getInstance();
         return inflater.inflate(R.layout.activity_chore_list2, container, false);
 
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        ListAdapter choreListAdapter = new CreateChoreAdapter(getActivity(), this.choreList);
+        ListAdapter choreListAdapter = new CreateChoreAdapter(getActivity(), manager.getChoreList());
         ListView listView = (ListView) getView().findViewById(R.id.choreList);
         listView.setAdapter(choreListAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

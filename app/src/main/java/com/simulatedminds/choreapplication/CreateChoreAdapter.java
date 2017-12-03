@@ -9,15 +9,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by Hussein on 2017-11-30.
  */
 
 public class CreateChoreAdapter extends ArrayAdapter<Chore2> {
 
-    private Chore2[] chores;
+    private ArrayList<Chore2> chores;
 
-    public CreateChoreAdapter(@NonNull Context context, Chore2[] chores) {
+    public CreateChoreAdapter(@NonNull Context context, ArrayList<Chore2> chores) {
         super(context, R.layout.chore_layout, chores);
         this.chores = chores;
     }
@@ -32,15 +34,15 @@ public class CreateChoreAdapter extends ArrayAdapter<Chore2> {
         TextView choreTitle = (TextView) customView.findViewById(R.id.choreTitle);
         TextView choreDetails = (TextView) customView.findViewById(R.id.choreDetails);
 
-        choreTitle.setText("Chore Title: " + chores[position].getChoreTitle());
+        choreTitle.setText("Chore Title: " + chores.get(position).getChoreTitle());
         //
-        if (!chores[position].getChoreDescription().equals(""))
-            reallyLongString += "Chore Description: " + chores[position].getChoreDescription() + "\n";
-        reallyLongString += "Reward: " + Integer.toString(chores[position].getChoreReward()) + "\n";
+        if (!chores.get(position).getChoreDescription().equals(""))
+            reallyLongString += "Chore Description: " + chores.get(position).getChoreDescription() + "\n";
+        reallyLongString += "Reward: " + Integer.toString(chores.get(position).getChoreReward()) + "\n";
 
-        for(int j = 0; j < chores[position].getChoreResources().length; j++){  //checking if there is resources
-            if(!chores[position].getChoreResources()[j].equals(""))
-                reallyLongString += "Chore Resource " + (j+1) + ") " + chores[position].getChoreResources()[j] + "\n";
+        for(int j = 0; j < chores.get(position).getChoreResources().length; j++){  //checking if there is resources
+            if(!chores.get(position).getChoreResources()[j].equals(""))
+                reallyLongString += "Chore Resource " + (j+1) + ") " + chores.get(position).getChoreResources()[j] + "\n";
         }
         choreDetails.setText(reallyLongString);
         return customView;

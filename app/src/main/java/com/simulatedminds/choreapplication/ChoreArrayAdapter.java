@@ -22,13 +22,13 @@ import java.util.ArrayList;
 
 //This class allows us to display Chore objects as a list.
 
-public class ChoreArrayAdapter extends ArrayAdapter<Chore>  {
+public class ChoreArrayAdapter extends ArrayAdapter<Chore2>  {
     /**/
     private final Context context;
-    private final ArrayList<Chore> chores;
+    private final ArrayList<Chore2> chores;
 
 
-    public ChoreArrayAdapter(Context context, ArrayList<Chore> values) {
+    public ChoreArrayAdapter(Context context, ArrayList<Chore2> values) {
         super(context, R.layout.chore_item_layout, values);
         this.context = context;
         this.chores = values;
@@ -38,7 +38,7 @@ public class ChoreArrayAdapter extends ArrayAdapter<Chore>  {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         //Getting Chore
-        Chore curChore = chores.get(position);
+        Chore2 curChore = chores.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -48,7 +48,7 @@ public class ChoreArrayAdapter extends ArrayAdapter<Chore>  {
         ImageView choreImage = (ImageView) rowView.findViewById(R.id.icon);
 
         //Placing content into Chore List Item
-        choreName.setText(curChore.getChoreName());
+        choreName.setText(curChore.getChoreTitle());
         choreDescription.setText((curChore.getChoreDescription()));
 
         //TODO: Perform decision regarding image selection for chore prior to setting an image

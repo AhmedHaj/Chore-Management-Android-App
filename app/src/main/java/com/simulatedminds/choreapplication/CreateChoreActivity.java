@@ -56,14 +56,10 @@ public class CreateChoreActivity extends AppCompatActivity {
             choreResources[0] = choreResource1.getText().toString();
             choreResources[1] = choreResource2.getText().toString();
             choreResources[2] = choreResource3.getText().toString();
-            int position = ChoreListActivity2.sizeOfChoreList;
-            Chore2[] newChoreList = new Chore2[++ChoreListActivity2.sizeOfChoreList];
-            for (int i = 0; i < position; i++) //copying contents into new array
-                newChoreList[i] = ChoreListActivity2.choreList[i];
-
-            ChoreListActivity2.choreList = newChoreList;
-            ChoreListActivity2.choreList[position] = new Chore2(choreTitle.getText().toString(),
+            ChoreManager manager = ChoreManager.getInstance();
+            Chore2 chore = new Chore2(choreTitle.getText().toString(),
                     choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources);
+            manager.addChore(chore);
             Intent intent = new Intent(this, NavigationDrawerActivity.class); //The reason it was crashing before was because ChoreListActivity2 is a fragment, and it was trying to call that.
             startActivity(intent);
         }

@@ -25,14 +25,14 @@ public class ChoreEditorActivity extends AppCompatActivity {
         int choreIndex = intent.getIntExtra(ChoreManager.intentIndexTitle,0); //0 is a "default return value"
 
         //Getting TextFields we are about to update
-        final TextView choreName = (TextView) findViewById(R.id.line01);
-        final EditText choreDescriptionline = (EditText) findViewById(R.id.line02);
+        final TextView choreName = (TextView) findViewById(R.id.editChoreTitle);
+        final EditText choreDescriptionline = (EditText) findViewById(R.id.editDescription);
 
         //Getting corresponding Recipe
-        final Chore chore = ChoreManager.getInstance().getChoreAt(choreIndex);
+        final Chore2 chore = ChoreManager.getInstance().getChoreAt(choreIndex);
 
         //Updating contents in this screen
-        choreName.setText(chore.getChoreName());
+        choreName.setText(chore.getChoreTitle());
         choreDescriptionline.setText(chore.getChoreDescription());
 
         //Updating Function of OnClick Button (Save)
@@ -41,7 +41,7 @@ public class ChoreEditorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Updating contents in variable
-                chore.setChoreName(choreName.getText().toString());
+                chore.setChoreTitle(choreName.getText().toString());
                 chore.setChoreDescription(choreDescriptionline.getText().toString());
 
                 //TODO: Save changed recipe information back in to recipe (I don't do it in the examples as students have to implement their own logic)
