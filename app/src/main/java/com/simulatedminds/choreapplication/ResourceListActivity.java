@@ -31,9 +31,23 @@ public class ResourceListActivity extends Fragment{
 
         //Getting RecipeManager Instance
         ResourceManager manager = ResourceManager.getInstance();
+        ResourceDB db = new ResourceDB(getActivity());
+
+//        String[] values = new String[]{
+//                "Soap", "Water", "Vacuum", "Broom", "Sponge", "Bucket"
+//        };
+//
+//        String[] descriptions = new String[]{
+//                "Soapy", "Wet", "Suck", "Sweep", "Squeeze", "What?"
+//        };
+//
+//        for (int i = 0; i < values.length ; i++) {
+//            Resource newResource = new Resource(values[i],descriptions[i]);
+//            db.addResource(newResource);
+//        }
 
         //Defining Array values to show in ListView
-        ResourceArrayAdapter adapter = new ResourceArrayAdapter(getActivity(), manager.getResourceList());
+        ResourceArrayAdapter adapter = new ResourceArrayAdapter(getActivity(), db.retrieveAll());
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

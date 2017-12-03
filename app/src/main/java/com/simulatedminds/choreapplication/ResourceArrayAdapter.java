@@ -30,6 +30,7 @@ public class ResourceArrayAdapter extends ArrayAdapter<Resource>  {
 
     public ResourceArrayAdapter(Context context, ArrayList<Resource> values) {
         super(context, R.layout.resource_item_layout, values);
+
         this.context = context;
         this.resources = values;
     }
@@ -49,7 +50,7 @@ public class ResourceArrayAdapter extends ArrayAdapter<Resource>  {
 
         //Placing content into Resource List Item
         resourceName.setText(curResource.getResourceName());
-        resourceDescription.setText((curResource.getResourceDescription()));
+        resourceDescription.setText((curResource.getChore()));
 
         //TODO: Perform decision regarding image selection for resource prior to setting an image
         resourceImage.setImageResource(R.drawable.questionmark);
