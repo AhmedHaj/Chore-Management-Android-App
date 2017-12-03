@@ -17,6 +17,7 @@ public class ChoreListActivity2 extends Fragment {
 
     private ChoreManager manager;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,8 +34,8 @@ public class ChoreListActivity2 extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {//Enables items in the list to react to clicks
-                Chore2 chore = (Chore2)adapterView.getItemAtPosition(i); //To be used to pass data to the intent
                 Intent intent = new Intent(getActivity(), ChoreEditorActivity.class);
+                intent.putExtra(ChoreManager.intentIndexTitle, i);
                 startActivity(intent);
             }
         });
@@ -44,7 +45,7 @@ public class ChoreListActivity2 extends Fragment {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(), CreateChoreActivity.class); //intent is used to launch another activity, make this intent to go to homepage
+                Intent intent = new Intent(getActivity(), CreateChoreActivity.class);//intent is used to launch another activity, make this intent to go to homepage
                 startActivity(intent);
             }
         });

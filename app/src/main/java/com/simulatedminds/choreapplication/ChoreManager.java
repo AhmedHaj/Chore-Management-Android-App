@@ -30,6 +30,11 @@ public class ChoreManager {
         return instance;
     }
 
+    public void deleteChore(Chore2 c){
+        choreList.remove(c);
+    }
+
+
     public void addChore(Chore2 c){
         choreList.add(c);
     }
