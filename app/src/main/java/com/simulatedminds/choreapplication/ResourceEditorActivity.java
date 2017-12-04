@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 public class ResourceEditorActivity extends AppCompatActivity {
 
+    private Resource resource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,7 @@ public class ResourceEditorActivity extends AppCompatActivity {
         final EditText resourceDescriptionline = (EditText) findViewById(R.id.line02);
 
         //Getting corresponding Recipe
-        final Resource resource = ResourceManager.getInstance().getResourceAt(resourceIndex);
+        resource = ResourceManager.getInstance().getResourceAt(resourceIndex);
 
         //Updating contents in this screen
         resourceName.setText(resource.getResourceName());
@@ -44,17 +46,30 @@ public class ResourceEditorActivity extends AppCompatActivity {
                 resource.setResourceName(resourceName.getText().toString());
                 resource.setChore(resourceDescriptionline.getText().toString());
 
+
                 //TODO: Save changed recipe information back in to recipe (I don't do it in the examples as students have to implement their own logic)
                 finish();
             }
         });
 
+
         //Updating Function of OnClick Button (Cancel)
         Button cancelButton = (Button) findViewById(R.id.buttonCancel);
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        //Updating Function of OnClick Button (Delete)
+        Button deleteButton = (Button) findViewById(R.id.buttonDelete);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ResourceManager.getInstance().deleteResource(resource);
+                finish();
+
             }
         });
 

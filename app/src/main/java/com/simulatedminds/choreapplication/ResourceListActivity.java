@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by Jonathan Calles on 11/29/2017.
  * Adapted from the Fall 2017 SEG2105 Lab7 Solutions
@@ -32,7 +34,7 @@ public class ResourceListActivity extends Fragment{
 
         //Getting RecipeManager Instance
         ResourceManager manager = ResourceManager.getInstance();
-        ResourceDB db = new ResourceDB(getActivity());
+        ResourceDB db = ResourceDB.getInstance(getActivity());
 
 //        String[] values = new String[]{
 //                "Soap", "Water", "Vacuum", "Broom", "Sponge", "Bucket"
@@ -48,7 +50,7 @@ public class ResourceListActivity extends Fragment{
 //        }
 
         //Defining Array values to show in ListView
-        ResourceArrayAdapter adapter = new ResourceArrayAdapter(getActivity(), db.retrieveAll());
+        ResourceArrayAdapter adapter = new ResourceArrayAdapter(getActivity(), manager.getResourceList());
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,11 +79,20 @@ public class ResourceListActivity extends Fragment{
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Get ListView object from xml layout
-        ListView listView = (ListView) getView().findViewById(R.id.list);
+        ListView listView = (ListView) getView().findViewById(R.id.resourceList);
 
         //TODO: Recycle the layout to display updated information
+        if(requestCode == 0){
+            if(resultCode == RESULT_OK){
+
+                ResourceArrayAdapter adapter = new ResourceArrayAdapter(getActivity(), ResourceManager.getResourceList());
+                listView.setAdapter(adapter);
+                listView.refreshDrawableState();
+            }
+        }
 
         //Refresh the contents of the screen
-        listView.refreshDrawableState();
+        // listView.refreshDrawableState();
+
     }
 }

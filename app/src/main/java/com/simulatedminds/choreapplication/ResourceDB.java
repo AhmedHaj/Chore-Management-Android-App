@@ -17,9 +17,19 @@ public class ResourceDB extends SQLiteOpenHelper {
     public static final String TABLE_RESOURCES = "resources";
     public static final String COLUMN_RESOURCENAME = "resourcename";
     public static final String COLUMN_CHORES = "chores";
+    private static ResourceDB instance = null;
 
     public ResourceDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public static synchronized ResourceDB getInstance(Context context){
+
+        if (instance == null){
+            instance = new ResourceDB(context);
+
+        }
+        return instance;
     }
 
     @Override
@@ -110,5 +120,30 @@ public class ResourceDB extends SQLiteOpenHelper {
         db.close();
         return list;
     }
+
+//    public boolean deleteAll(){
+//
+//        SQLiteDatabase db = this.getReadableDatabase();
+//
+//        String query = "Select * FROM " + TABLE_RESOURCES;
+//        Cursor cursor = db.rawQuery(query, null);
+//
+//        ArrayList list = new ArrayList<Resource>();
+//
+//        if (cursor.moveToFirst()) {
+//            while (!cursor.isAfterLast()) {
+//                Resource resource = new Resource(cursor.getString(0),cursor.getString(1));
+//                resource.setResourceName(cursor.getString(0));
+//                resource.setChore(cursor.getString(1));
+//
+//                list.add(resource);
+//                cursor.moveToNext();
+//            }
+//            cursor.close();
+//        }
+//        db.close();
+//        return list;
+//
+//    }
 
 }
