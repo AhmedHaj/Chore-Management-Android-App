@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 /**
@@ -27,7 +28,7 @@ public class ResourceListActivity extends Fragment{
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         // or  (ImageView) view.findViewById(R.id.foo);
         // Get ListView object from xml layout
-        ListView listView = (ListView) getView().findViewById(R.id.list);
+        ListView listView = (ListView) getView().findViewById(R.id.resourceList);
 
         //Getting RecipeManager Instance
         ResourceManager manager = ResourceManager.getInstance();
@@ -57,6 +58,20 @@ public class ResourceListActivity extends Fragment{
                 startActivityForResult(launchTeamEditorIntent, 0);
             }
         });
+
+
+        //Button listener and function for when the button ("Create Resource!") is clicked
+        Button button = (Button) view.findViewById(R.id.createResourceBtn);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), ResourceEditorActivity.class);//intent is used to launch another activity, make this intent to go to homepage
+                startActivity(intent);
+            }
+        });
+
     }
 
 
