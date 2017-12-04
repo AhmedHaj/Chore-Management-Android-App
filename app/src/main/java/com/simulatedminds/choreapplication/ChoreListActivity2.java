@@ -47,8 +47,8 @@ public class ChoreListActivity2 extends Fragment {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity(), CreateChoreActivity.class);//intent is used to launch another activity, make this intent to go to homepage
-                startActivity(intent);
+                Intent intent = new Intent(getActivity(), CreateChoreActivity.class);
+                startActivityForResult(intent, 0);
             }
         });
 
