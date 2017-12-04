@@ -132,7 +132,8 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
             startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
-
+            Intent intent = new Intent(this, ProfileLoginActivity.class); //intent is used to launch another activity, in this case it launches About Us
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

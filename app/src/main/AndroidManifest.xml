@@ -31,6 +31,7 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ChoreEditorActivity" />
         <activity android:name=".ResourceEditorActivity" />
+        <activity android:name=".ProfileLoginActivity" />
     </application>
 
 </manifest>
