@@ -60,6 +60,7 @@ public class ChoreListActivity2 extends Fragment {
 
         //TODO: Recycle the layout to display updated information
         if(requestCode == 0){
+            choreListAdapter.notifyDataSetChanged();
             if(resultCode == RESULT_OK){
 
                 choreListAdapter.notifyDataSetChanged();
@@ -68,7 +69,6 @@ public class ChoreListActivity2 extends Fragment {
 
         //Refresh the contents of the screen
 //        listView.refreshDrawableState();
-
     }
 
 
