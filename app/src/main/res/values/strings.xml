@@ -17,6 +17,7 @@
     <string name="name_your_accounts">Name your Accounts!</string>
     <string name="create_chore">Create Chore!</string>
     <string name="modify_chore">Edit Chore!</string>
+    <string name="chore_status">Completed</string>
     <string name="enter_chore_title">Enter Chore Title!</string>
     <string name="enter_chore_description">Enter chore description!</string>
     <string name="reward_system">Reward System:</string>

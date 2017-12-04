@@ -39,8 +39,6 @@ public class ChoreListActivity2 extends Fragment {
                 startActivity(intent);
             }
         });
-
-        //Button listener and function for when the button ("Create Chore!") is clicked
         Button button = (Button) view.findViewById(R.id.createChoreBtn);
         button.setOnClickListener(new View.OnClickListener()
         {

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class CreateChoreAdapter extends ArrayAdapter<Chore2> {
         String reallyLongString = "";
         TextView choreTitle = (TextView) customView.findViewById(R.id.choreTitle);
         TextView choreDetails = (TextView) customView.findViewById(R.id.choreDetails);
+        ImageView completed = (ImageView) customView.findViewById(R.id.chore_onTime);
 
         choreTitle.setText("Chore Title: " + chores.get(position).getChoreTitle());
         //
@@ -45,6 +47,8 @@ public class CreateChoreAdapter extends ArrayAdapter<Chore2> {
                 reallyLongString += "Chore Resource " + (j+1) + ") " + chores.get(position).getChoreResources()[j] + "\n";
         }
         choreDetails.setText(reallyLongString);
+        //Checks the status of the chore, if completed the ImageView completed is visible
+        completed.setVisibility(chores.get(position).getStatus() ? View.VISIBLE : View.GONE);
         return customView;
     }
 

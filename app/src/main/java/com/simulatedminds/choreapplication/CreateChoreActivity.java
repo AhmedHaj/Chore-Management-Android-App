@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class CreateChoreActivity extends AppCompatActivity {
-
+    private CheckBox statusCheckBox;
+    private boolean status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,13 @@ public class CreateChoreActivity extends AppCompatActivity {
                 InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);                inputMethodManager.toggleSoftInputFromWindow(v.getApplicationWindowToken(), InputMethodManager.SHOW_FORCED, 0);
             }
         });
+        statusCheckBox = (CheckBox)findViewById(R.id.choreStatus);
+        statusCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                status = b;
+            }
+        });
     }
 
 
@@ -35,6 +45,7 @@ public class CreateChoreActivity extends AppCompatActivity {
         EditText choreResource1 = (EditText) findViewById(R.id.enterResource1);
         EditText choreResource2 = (EditText) findViewById(R.id.enterResource2);
         EditText choreResource3 = (EditText) findViewById(R.id.enterResource3);
+        statusCheckBox = (CheckBox) findViewById(R.id.choreStatus);
 
         try {
             rewardNotAnInteger = false;
@@ -58,7 +69,7 @@ public class CreateChoreActivity extends AppCompatActivity {
             choreResources[2] = choreResource3.getText().toString();
             ChoreManager manager = ChoreManager.getInstance();
             Chore2 chore = new Chore2(choreTitle.getText().toString(),
-                    choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources);
+                    choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources,status);
             manager.addChore(chore);
             Intent intent = new Intent(this, NavigationDrawerActivity.class); //The reason it was crashing before was because ChoreListActivity2 is a fragment, and it was trying to call that.
             startActivity(intent);

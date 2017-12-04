@@ -10,14 +10,16 @@ public class Chore2 {
     private String[] choreResources;
     private String[] assignedUsers;
     private int choreReward = 0;
+    private boolean status = false;
 
 
-    public Chore2(String choreTitle, String choreDescription, int choreReward, String[] choreResources) {
+    public Chore2(String choreTitle, String choreDescription, int choreReward, String[] choreResources,boolean status) {
         //to be added as last parameter  String[] assignedUsers
         this.choreTitle = choreTitle;
         this.choreDescription = choreDescription;
         this.choreResources = choreResources;
         this.choreReward = choreReward;
+        this.status = status;
         this.assignedUsers = assignedUsers;
     }
 
@@ -52,4 +54,6 @@ public class Chore2 {
     public void setChoreResources(String[] choreResources){
         this.choreResources = choreResources;
     }
+    public void setStatus(boolean status){this.status = status;}
+    public boolean getStatus(){return status;}
 }

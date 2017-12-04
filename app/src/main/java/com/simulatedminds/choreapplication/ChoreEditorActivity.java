@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +24,7 @@ public class ChoreEditorActivity extends AppCompatActivity {
     private EditText choreResource1;
     private EditText choreResource2;
     private EditText choreResource3;
-
+    private CheckBox statusCheckBox;
     private Chore2 chore;
 
     @Override
@@ -41,7 +43,7 @@ public class ChoreEditorActivity extends AppCompatActivity {
         choreResource1 = (EditText) findViewById(R.id.enterResource1);
         choreResource2 = (EditText) findViewById(R.id.enterResource2);
         choreResource3 = (EditText) findViewById(R.id.enterResource3);
-
+        statusCheckBox = (CheckBox) findViewById(R.id.choreStatus);
 
         //Getting corresponding Recipe
         chore = ChoreManager.getInstance().getChoreAt(choreIndex);
@@ -54,6 +56,14 @@ public class ChoreEditorActivity extends AppCompatActivity {
         choreResource1.setText(choreResources[0]);
         choreResource2.setText(choreResources[1]);
         choreResource3.setText(choreResources[2]);
+        statusCheckBox.setChecked(chore.getStatus());
+
+        statusCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                chore.setStatus(b);
+            }
+        });
 
         //Updating Function of OnClick Button (Save)
         Button saveButton = (Button) findViewById(R.id.buttonSave);
@@ -98,7 +108,6 @@ public class ChoreEditorActivity extends AppCompatActivity {
             }
         });
 
-        //Updating Function of OnClick Button (Delete)
         Button deleteButton = (Button) findViewById(R.id.buttonDelete);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
