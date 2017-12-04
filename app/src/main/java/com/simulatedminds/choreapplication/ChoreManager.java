@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Adapted from the Fall 2017 SEG2105 Lab7 Solutions
  */
 
-//Simple Recipe Management Singleton
+//Simple Chore Management Singleton
 public class ChoreManager {
 
     public static final String intentIndexTitle = "selectedChore";

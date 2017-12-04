@@ -13,25 +13,27 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".CreateAppActivity" />
-        <activity android:name=".AccountCreationActivity" />
-        <activity android:name=".AboutUsActivity" />
-        <activity android:name=".CreateChoreActivity" />
-        <activity
-            android:name=".NavigationDrawerActivity"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CreateAppActivity" />
+        <activity android:name=".AccountCreationActivity" />
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".CreateChoreActivity" />
+        <activity android:name=".UserCreationActivity" />
+        <activity
+            android:name=".NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ChoreEditorActivity" />
         <activity android:name=".ResourceEditorActivity" />
-        <activity android:name=".ProfileLoginActivity" />
+        <activity android:name=".UserSelectActivity" />
     </application>
 
 </manifest>

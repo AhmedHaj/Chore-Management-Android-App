@@ -98,6 +98,7 @@ public class ChoreEditorActivity extends AppCompatActivity {
             }
         });
 
+        //Updating Function of OnClick Button (Delete)
         Button deleteButton = (Button) findViewById(R.id.buttonDelete);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override

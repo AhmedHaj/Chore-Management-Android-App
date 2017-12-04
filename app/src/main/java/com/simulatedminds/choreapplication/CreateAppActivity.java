@@ -2,6 +2,7 @@ package com.simulatedminds.choreapplication;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -77,7 +78,25 @@ public class CreateAppActivity extends AppCompatActivity {
 
         //checks if there is at least one regular user to be able to go to the next activity
         if (getNumberOfRegularUsers() > 0){
-            Intent intent = new Intent(this, AccountCreationActivity.class); //intent is used to launch another activity
+
+            //Use the UserManager (singleton class) to manage the users in a way that is accessible to all other activities in the app
+            UserManager manager = UserManager.getInstance();
+
+            //creates temp Regular Users
+            for (int i = 0; i < getNumberOfRegularUsers(); i++){
+                User tempUser = new User("User Name" + i, "0000");
+                manager.addUser(tempUser);
+            }
+
+            //creates temp Child Users
+            for (int i = 0; i < getNumberOfChildUsers(); i++){
+                User tempUser = new User("Child Name" + i, "0000");
+                manager.addUser(tempUser);
+            }
+
+
+
+            Intent intent = new Intent(this, NavigationDrawerActivity.class); //intent is used to launch another activity
             startActivity(intent);
         } else {
             Toast.makeText(this, "Number of regular users should be greatar than zero", Toast.LENGTH_LONG).show(); //a way to print in an emulator

@@ -124,15 +124,15 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
             viewPager.setCurrentItem(2);
 
         } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class); //intent is used to launch another activity, in this case it launches About Us
+            Intent intent = new Intent(this, SettingsActivity.class); //intent is used to launch another activity, in this case it launches Settings Activity
             startActivity(intent);
 
         } else if (id == R.id.nav_aboutus) {
-            Intent intent = new Intent(this, AboutUsActivity.class); //intent is used to launch another activity, in this case it launches About Us
+            Intent intent = new Intent(this, AboutUsActivity.class); //intent is used to launch another activity, in this case it launches About Us Activity
             startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
-            Intent intent = new Intent(this, ProfileLoginActivity.class); //intent is used to launch another activity, in this case it launches About Us
+            Intent intent = new Intent(this, UserSelectActivity.class); //intent is used to launch another activity, in this case it launches Profile Login Activity
             startActivity(intent);
         }
 
