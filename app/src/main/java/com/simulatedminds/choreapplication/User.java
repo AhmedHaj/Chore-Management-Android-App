@@ -9,6 +9,11 @@ public class User {
     private String userName= ""; //empty username making sure not having null
     private String userPassword = "";
 
+    public User(String userName, String userPassword) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+    }
+
     //setters and getters
     public void setUserName(String userName) {
         this.userName = userName;
