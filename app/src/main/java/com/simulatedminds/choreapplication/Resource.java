@@ -9,12 +9,15 @@ public class Resource {
 
     //Instance variables
     private String resourceName = "Name Not Defined";
-    private String resourceDescription = "Description Not Defined";
+    private String chore;
 
     //Constructor
-    public Resource(String name, String description) {
+    public Resource() {
+    }
+
+    public Resource(String name, String chore) {
         this.resourceName = name;
-        this.resourceDescription = description;
+        this.chore = chore;
     }
 
     //Standard setters and getters to manage the information in the instances of this class
@@ -22,16 +25,16 @@ public class Resource {
         return resourceName;
     }
 
+    public String getChore() {
+        return chore;
+    }
+
     public void setResourceName(String newName) {
         resourceName = newName;
     }
 
-    public String getResourceDescription() {
-        return resourceDescription;
-    }
-
-    public void setResourceDescription(String newDescription) {
-        resourceDescription = newDescription;
+    public void setChore(String chore) {
+        this.chore = chore;
     }
 
 }

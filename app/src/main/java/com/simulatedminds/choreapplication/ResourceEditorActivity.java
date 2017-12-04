@@ -33,7 +33,7 @@ public class ResourceEditorActivity extends AppCompatActivity {
 
         //Updating contents in this screen
         resourceName.setText(resource.getResourceName());
-        resourceDescriptionline.setText(resource.getResourceDescription());
+        resourceDescriptionline.setText(resource.getChore());
 
         //Updating Function of OnClick Button (Save)
         Button saveButton = (Button) findViewById(R.id.buttonSave);
@@ -42,7 +42,7 @@ public class ResourceEditorActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Updating contents in variable
                 resource.setResourceName(resourceName.getText().toString());
-                resource.setResourceDescription(resourceDescriptionline.getText().toString());
+                resource.setChore(resourceDescriptionline.getText().toString());
 
                 //TODO: Save changed recipe information back in to recipe (I don't do it in the examples as students have to implement their own logic)
                 finish();
