@@ -22,6 +22,7 @@ public class UserEditorActivity extends AppCompatActivity {
     private User user;
     private EditText userName;
     private EditText userPassword;
+    private EditText userPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,53 +41,12 @@ public class UserEditorActivity extends AppCompatActivity {
         //Identify TextFields that need to be populated
         userName = (EditText) findViewById(R.id.editUserNameText); //These correspond to the IDs of the textfields in the layout file
         userPassword = (EditText) findViewById(R.id.editUserPasswordText); //These correspond to the IDs of the textfields in the layout file
-
+        userPoints = (EditText) findViewById(R.id.editUserPointsText); //These correspond to the IDs of the textfields in the layout file
 
         //Update contents in this screen to match with the User that was clicked, and therefore the text that will be edited by the user
         userName.setText(user.getUserName()); //These correspond to the getters in the User java class
         userPassword.setText(user.getUserPassword()); //These correspond to the getters in the User java class
-
-
-        /*
-        //Listener and function when  button ("Save") is clicked
-        Button saveButton = (Button) findViewById(R.id.buttonSaveUser);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Update the instance of User using the setter methods, using the text from the textfields
-                user.setUserName(userName.getText().toString());
-                user.setUserPassword(userPassword.getText().toString());
-
-                //TODO: May want to program some checks / catch exceptions if null, etc.
-                finish();
-            }
-        });
-
-
-
-
-        //Listener and function when  button ("Cancel") is clicked
-        Button cancelButton = (Button) findViewById(R.id.buttonCancelUser);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();//Nothing to be done, so just close the current activity
-            }
-        });
-
-
-        //Listener and function when  button ("Delete") is clicked
-        Button deleteButton = (Button) findViewById(R.id.buttonDeleteUser);
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                UserManager.getInstance().deleteUser(user); //delete the instance of User
-                finish(); //close current activity
-            }
-        });
-        */
-
-
+        userPoints.setText(Integer.toString(user.getUserPoints())); //These correspond to the getters in the User java class
 
 
     }
@@ -116,6 +76,17 @@ public class UserEditorActivity extends AppCompatActivity {
         //Update the instance of User using the setter methods, using the text from the textfields
         user.setUserName(userName.getText().toString());
         user.setUserPassword(userPassword.getText().toString());
+
+        int tempInt;
+        try {
+            tempInt = Integer.parseInt(userPassword.getText().toString());
+            user.setUserPoints(tempInt);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Points must be an integer", Toast.LENGTH_LONG).show(); //a way to print in an emulator
+        }
+
+
+        //TODO: May want to program some checks / catch exceptions if null, etc.
 
         //return to User list
         Intent intentGoBack = new Intent(this, UserSelectActivity.class); //intent is used to launch another activity
