@@ -45,14 +45,20 @@ public class ChoreArrayAdapter extends ArrayAdapter<Chore2>  {
         View rowView = inflater.inflate(R.layout.chore_item_layout, parent, false);
         TextView choreName = (TextView) rowView.findViewById(R.id.itemName);
         TextView choreDescription = (TextView) rowView.findViewById(R.id.itemDescription);
-        ImageView choreImage = (ImageView) rowView.findViewById(R.id.icon);
+        ImageView choreMark = (ImageView) rowView.findViewById(R.id.markChore);
+
+        if(curChore.getStatus())
+            choreMark.setImageResource(R.drawable.completed_time);
+        else
+            choreMark.setImageResource(R.drawable.not_completed_time);
+
 
         //Placing content into Chore List Item
-        choreName.setText(curChore.getChoreTitle());
-        choreDescription.setText((curChore.getChoreDescription()));
+        choreName.setText("Chore title: " + curChore.getChoreTitle());
+        choreDescription.setText("Chore description: " + curChore.getChoreDescription());
 
         //TODO: Perform decision regarding image selection for chore prior to setting an image
-        choreImage.setImageResource(R.drawable.questionmark);
+        //choreImage.setImageResource(R.drawable.questionmark);
 
         return rowView;
     }

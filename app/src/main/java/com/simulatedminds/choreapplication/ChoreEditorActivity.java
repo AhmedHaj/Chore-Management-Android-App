@@ -25,7 +25,7 @@ public class ChoreEditorActivity extends AppCompatActivity {
     private EditText choreResource2;
     private EditText choreResource3;
     private CheckBox statusCheckBox;
-    private Chore2 chore;
+    public static Chore2 chore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +95,7 @@ public class ChoreEditorActivity extends AppCompatActivity {
                     if(choreName.getText().toString().equals(""))
                         Toast.makeText(getApplicationContext(), "You have to have at least a chore title!", Toast.LENGTH_LONG).show(); //a way to print in an emulator
                 }
+
                 finish();
             }
         });
