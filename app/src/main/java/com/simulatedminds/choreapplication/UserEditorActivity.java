@@ -79,7 +79,7 @@ public class UserEditorActivity extends AppCompatActivity {
 
         int tempInt;
         try {
-            tempInt = Integer.parseInt(userPassword.getText().toString());
+            tempInt = Integer.parseInt(userPoints.getText().toString());
             user.setUserPoints(tempInt);
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Points must be an integer", Toast.LENGTH_LONG).show(); //a way to print in an emulator

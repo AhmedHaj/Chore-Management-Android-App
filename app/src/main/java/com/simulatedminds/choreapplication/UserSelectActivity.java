@@ -67,6 +67,14 @@ public class UserSelectActivity extends AppCompatActivity {
         //Refresh the contents of the screen
         listView.refreshDrawableState();
     }
+
+
+    //method to use when the button ("Cancel") gets clicked
+    public void onClickBtnTempUndefined(View v){
+        //return to User list
+        Intent intentGoBack = new Intent(this, NavigationDrawerActivity.class); //intent is used to launch another activity
+        startActivity(intentGoBack);
+    }
 }
 
 
