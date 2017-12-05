@@ -33,8 +33,8 @@ public class ChoreEditorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chore_editor); // The layout is being modified
 
         //Getting the incomming intent
-        //Intent intent = getIntent();
-        //int choreIndex = intent.getIntExtra(ChoreManager.intentIndexTitle,0); //0 is a "default return value"
+        Intent intent = getIntent();
+        int choreIndex = intent.getIntExtra(ChoreManager.intentIndexTitle,0); //0 is a "default return value"
 
         //Getting TextFields we are about to update
         choreName = (TextView) findViewById(R.id.editChoreTitle);
@@ -46,7 +46,7 @@ public class ChoreEditorActivity extends AppCompatActivity {
         statusCheckBox = (CheckBox) findViewById(R.id.choreStatus);
 
         //Getting corresponding Recipe
-        //chore = ChoreManager.getInstance().getChoreAt(choreIndex);
+        chore = ChoreManager.getInstance().getChoreAt(choreIndex);
 
         //Updating contents in this screen
         choreName.setText(chore.getChoreTitle());
@@ -95,6 +95,7 @@ public class ChoreEditorActivity extends AppCompatActivity {
                     if(choreName.getText().toString().equals(""))
                         Toast.makeText(getApplicationContext(), "You have to have at least a chore title!", Toast.LENGTH_LONG).show(); //a way to print in an emulator
                 }
+
                 finish();
             }
         });

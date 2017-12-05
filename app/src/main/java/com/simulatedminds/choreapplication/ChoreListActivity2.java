@@ -38,7 +38,7 @@ public class ChoreListActivity2 extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {//Enables items in the list to react to clicks
-                Intent intent = new Intent(getActivity(), ViewChoreActivity.class);
+                Intent intent = new Intent(getActivity(), ChoreEditorActivity.class);
                 intent.putExtra(ChoreManager.intentIndexTitle, i);
                 startActivityForResult(intent, 0);
             }

@@ -32,7 +32,6 @@
         <activity android:name=".ChoreEditorActivity" />
         <activity android:name=".ResourceEditorActivity" />
         <activity android:name=".UserSelectActivity" />
-        <activity android:name=".ViewChoreActivity"></activity>
     </application>
 
 </manifest>
