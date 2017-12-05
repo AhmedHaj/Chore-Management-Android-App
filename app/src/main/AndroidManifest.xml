@@ -33,6 +33,7 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ChoreEditorActivity" />
         <activity android:name=".ResourceEditorActivity" />
+        <activity android:name=".UserEditorActivity" />
         <activity android:name=".UserSelectActivity" />
     </application>
 

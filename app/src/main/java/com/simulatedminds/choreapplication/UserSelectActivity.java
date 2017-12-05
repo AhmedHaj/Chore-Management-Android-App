@@ -30,23 +30,25 @@ public class UserSelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_select);
 
 
-        // Get ListView object from xml layout
+        // Get ListView object from xml layout, the thing were Users will be display in a list
         ListView listView = (ListView) findViewById(R.id.userList);
 
         //Getting UserManager Instance
         manager = UserManager.getInstance();
 
-        //Defining Array values to show in ListView
+        //Takes contents of User Manager and adapts it so that the instances of User stored can be displayed as a list on the UI
         UserArrayAdapter adapter = new UserArrayAdapter(this, manager.getUserList());
         listView.setAdapter(adapter);
+
+        //Listener for whenever one of the Users displayed is clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, final View view, int position, long id) { //Enables items in the list to react to clicks
 
                 //TODO: Create User editor screen
-                //Intent intent = new Intent(getApplicationContext(), UserEditorActivity.class);
-                //intent.putExtra(UserManager.intentIndexTitle,position);
-                //startActivityForResult(intent, 0);
+                Intent intent = new Intent(getApplicationContext(), UserEditorActivity.class);
+                intent.putExtra(UserManager.intentIndexTitle, position);
+                startActivityForResult(intent, 0);
             }
         });
 
