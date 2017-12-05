@@ -1,5 +1,7 @@
 package com.simulatedminds.choreapplication;
 
+import android.support.v7.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
 /**
@@ -8,29 +10,16 @@ import java.util.ArrayList;
  */
 
 //Simple Recipe Management Singleton
-public class ResourceManager {
+public class ResourceManager extends AppCompatActivity {
 
     public static final String intentIndexTitle = "selectedResource";
-    private static ResourceManager instance = null;
-    private ArrayList<Resource> resourceList;
+    private static ResourceManager instance;
+    private static ArrayList<Resource> resourceList;
 
     protected ResourceManager() {
         //This Exists to defeat instantiation
 
-        String[] values = new String[]{
-                "Soap", "Water", "Vacuum", "Broom", "Sponge", "Bucket"
-        };
-
-        String[] descriptions = new String[]{
-                "Soapy", "Wet", "Suck", "Sweep", "Squeeze", "What?"
-        };
-
         resourceList = new ArrayList<>();
-
-        for (int i = 0; i < values.length ; i++) {
-            Resource newResource = new Resource(values[i],descriptions[i]);
-            resourceList.add(newResource);
-        }
     }
 
     public static ResourceManager getInstance() {
@@ -40,11 +29,21 @@ public class ResourceManager {
         return instance;
     }
 
-    public ArrayList<Resource> getResourceList() {
+
+    public static void deleteResource(Resource resource){
+        resourceList.remove(resource);
+    }
+
+
+    public static void addResource(Resource resource){
+        resourceList.add(resource);
+    }
+
+    public static ArrayList<Resource> getResourceList() {
         return resourceList;
     }
 
-    public Resource getResourceAt(int index) {
+    public static Resource getResourceAt(int index) {
         return resourceList.get(index);
     }
 }

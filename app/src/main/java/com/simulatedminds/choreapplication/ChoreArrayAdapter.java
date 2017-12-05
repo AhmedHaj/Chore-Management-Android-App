@@ -29,7 +29,7 @@ public class ChoreArrayAdapter extends ArrayAdapter<Chore2>  {
 
 
     public ChoreArrayAdapter(Context context, ArrayList<Chore2> values) {
-        super(context, R.layout.chore_item_layout, values);
+        super(context, R.layout.chore_layout, values);
         this.context = context;
         this.chores = values;
     }

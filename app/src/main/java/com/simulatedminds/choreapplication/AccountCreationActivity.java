@@ -21,7 +21,7 @@ public class AccountCreationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account_creation);
         setCorrectTextOfButton();
         User[] users = new User[CreateAppActivity.getNumberOfRegularUsers() + CreateAppActivity.getNumberOfChildUsers()]; //makes an array of users
-        populateArrayWithObjects(users);
+//        populateArrayWithObjects(users);
         ListAdapter accountToCreateAdapter = new AccountCreationAdapter(this, users);
         ListView listView = (ListView) findViewById(R.id.accountsToCreateList);
         listView.setAdapter(accountToCreateAdapter);
@@ -93,12 +93,12 @@ public class AccountCreationActivity extends AppCompatActivity {
 
     }
 
-    //populates the array users
-    public void populateArrayWithObjects(User[] users){ //method that populates array with objects user
-        for (int i = 0; i < users.length; i++){
-            users[i] = new User();
-        }
-    }
+//    //populates the array users
+//    public void populateArrayWithObjects(User[] users){ //method that populates array with objects user
+//        for (int i = 0; i < users.length; i++){
+//            users[i] = new User();
+//        }
+//    }
 
     //getter method to get users
     public User[] getUsers(){

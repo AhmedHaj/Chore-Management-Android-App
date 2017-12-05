@@ -1,7 +1,6 @@
 package com.simulatedminds.choreapplication;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -71,9 +70,9 @@ public class CreateChoreActivity extends AppCompatActivity {
             Chore2 chore = new Chore2(choreTitle.getText().toString(),
                     choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources,status);
             manager.addChore(chore);
-            Intent intent = new Intent(this, NavigationDrawerActivity.class); //The reason it was crashing before was because ChoreListActivity2 is a fragment, and it was trying to call that.
-            startActivity(intent);
         }
+
+        finish();
 
 
     }
