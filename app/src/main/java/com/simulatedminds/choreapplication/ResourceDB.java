@@ -121,29 +121,6 @@ public class ResourceDB extends SQLiteOpenHelper {
         return list;
     }
 
-//    public boolean deleteAll(){
-//
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        String query = "Select * FROM " + TABLE_RESOURCES;
-//        Cursor cursor = db.rawQuery(query, null);
-//
-//        ArrayList list = new ArrayList<Resource>();
-//
-//        if (cursor.moveToFirst()) {
-//            while (!cursor.isAfterLast()) {
-//                Resource resource = new Resource(cursor.getString(0),cursor.getString(1));
-//                resource.setResourceName(cursor.getString(0));
-//                resource.setChore(cursor.getString(1));
-//
-//                list.add(resource);
-//                cursor.moveToNext();
-//            }
-//            cursor.close();
-//        }
-//        db.close();
-//        return list;
-//
-//    }
+
 
 }

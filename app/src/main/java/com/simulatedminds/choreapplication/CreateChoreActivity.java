@@ -70,9 +70,8 @@ public class CreateChoreActivity extends AppCompatActivity {
             Chore2 chore = new Chore2(choreTitle.getText().toString(),
                     choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources,status);
             manager.addChore(chore);
+            finish();
         }
-
-        finish();
 
 
     }
