@@ -69,10 +69,18 @@ public class UserSelectActivity extends AppCompatActivity {
     }
 
 
-    //method to use when the button ("Cancel") gets clicked
+    //method to use when the button ("Temp - Go To Nav. Draw.") gets clicked
     public void onClickBtnTempUndefined(View v){
         //return to User list
         Intent intentGoBack = new Intent(this, NavigationDrawerActivity.class); //intent is used to launch another activity
+        startActivity(intentGoBack);
+    }
+
+
+    //method to use when the button ("Create Regular User") gets clicked
+    public void onClickBtnCreateRegularUser(View v){
+        //return to User list
+        Intent intentGoBack = new Intent(this, UserCreationActivity.class); //intent is used to launch another activity
         startActivity(intentGoBack);
     }
 }
