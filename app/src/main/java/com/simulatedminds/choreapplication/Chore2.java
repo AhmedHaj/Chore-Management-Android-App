@@ -7,8 +7,8 @@ package com.simulatedminds.choreapplication;
 public class Chore2 {
     private String choreTitle = " ";
     private String choreDescription = " ";
-    private String[] choreResources;
-    private String[] assignedUsers;
+    private String[] choreResources = {"", "", ""};
+    private String[] assignedUsers = {"", "", ""};
     private int choreReward = 0;
     private boolean status = false;
 

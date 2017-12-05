@@ -27,13 +27,12 @@
         <activity
             android:name=".NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ChoreEditorActivity" />
         <activity android:name=".ResourceEditorActivity" />
         <activity android:name=".UserSelectActivity" />
+        <activity android:name=".ViewChoreActivity"></activity>
     </application>
 
 </manifest>
