@@ -49,6 +49,9 @@ public class UserManager {
         return userList.get(index);
     }
 
-}
+    public int getUserSize(){
+        return userList.size();
+    }
 
+}
 

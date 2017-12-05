@@ -8,10 +8,12 @@ public class User {
     //Instance variables
     private String userName= ""; //empty username making sure not having null
     private String userPassword = "";
+    private int userPoints;
 
     public User(String userName, String userPassword) {
         this.userName = userName;
         this.userPassword = userPassword;
+        this.userPoints = 0;
     }
 
     //setters and getters
@@ -27,6 +29,8 @@ public class User {
     public String getUserPassword(){
         return userPassword;
     }
+    public int getUserPoints() {return userPoints;}
+    public void setUserPoints(int userPoints) {this.userPoints = userPoints;}
 
 
 
