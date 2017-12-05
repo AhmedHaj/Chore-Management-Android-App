@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -51,6 +52,23 @@ public class ChoreListActivity2 extends Fragment {
             {
                 Intent intent = new Intent(getActivity(), CreateChoreActivity.class);
                 startActivityForResult(intent, 0);
+            }
+        });
+
+        Button clearCompletedChoresBtn = (Button) view.findViewById(R.id.clearCompletedChoresBtn);
+        clearCompletedChoresBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(manager.getChoreList().size() != 0) {
+                    for (int i = 0; i < manager.getChoreList().size(); i++) {
+                        if (manager.getChoreAt(i).getStatus())
+                            manager.deleteChore(manager.getChoreAt(i));
+                    }
+                    choreListAdapter.notifyDataSetChanged();
+                }
+
             }
         });
     }
