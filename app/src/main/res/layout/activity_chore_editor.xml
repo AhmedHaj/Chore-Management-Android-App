@@ -96,17 +96,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="15dp"
-                android:text="@string/assignment"
+                android:text="Assigned To:"
                 android:textAlignment="textStart"
                 android:textColor="#FF6610"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView6"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add a listview here or something" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/assignmentTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/assignUsersBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Change Assignment" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/setRewardTitle"

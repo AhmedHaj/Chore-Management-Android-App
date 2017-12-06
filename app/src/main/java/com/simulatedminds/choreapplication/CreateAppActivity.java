@@ -102,7 +102,6 @@ public class CreateAppActivity extends AppCompatActivity {
             Toast.makeText(this, "Number of regular users should be greatar than zero", Toast.LENGTH_LONG).show(); //a way to print in an emulator
         }
     }
-
     // ---------- Getters and Setters ----------
     public static void setNumberOfRegularUsers(int users){
         numberOfRegularUsers = users;

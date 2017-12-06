@@ -1,18 +1,29 @@
 package com.simulatedminds.choreapplication;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class CreateChoreActivity extends AppCompatActivity {
     private CheckBox statusCheckBox;
     private boolean status;
+    Button assignUsers;
+    String[] listOfUserNames;
+    String[] listOfUserNamesSelected;
+    boolean[] checkedItems;
+    ArrayList<Integer> usersSelectedItemes = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +44,72 @@ public class CreateChoreActivity extends AppCompatActivity {
                 status = b;
             }
         });
+
+        // REFERENCE TO THE CODE BELOW IS https://github.com/codingdemos/MultichoiceTutorial/blob/master/app/src/main/java/com/example/multichoicetutorial/MainActivity.java
+        final UserManager userManager = UserManager.getInstance();
+        assignUsers = (Button) findViewById(R.id.assignUsersBtn);
+
+        listOfUserNames = new String[userManager.getUserSize()];
+        for (int i = 0; i < userManager.getUserSize(); i++){
+            listOfUserNames[i] = userManager.getUserAt(i).getUserName();
+        }
+
+        checkedItems = new boolean[userManager.getUserSize()];
+        assignUsers.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder assignUsersBuilder = new AlertDialog.Builder(CreateChoreActivity.this);
+                assignUsersBuilder.setTitle("Select users to assign chore to!");
+                assignUsersBuilder.setMultiChoiceItems(listOfUserNames, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int position, boolean isChecked) {
+                        if (isChecked) {
+                            if (!usersSelectedItemes.contains(position)) {
+                                usersSelectedItemes.add(position);
+                            } else {
+                                usersSelectedItemes.remove(position);
+                            }
+                        }
+                    }
+
+                });
+                assignUsersBuilder.setCancelable(false);
+                assignUsersBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) { //gets called after assigning users
+                        if(usersSelectedItemes.size() != 0){
+                            listOfUserNamesSelected = new String[usersSelectedItemes.size()];
+                            for (int j = 0; j < usersSelectedItemes.size(); j++){
+                                listOfUserNamesSelected[j] = userManager.getUserAt(usersSelectedItemes.get(j)).getUserName();
+                            }
+                        }
+
+                    }
+                });
+
+                assignUsersBuilder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                assignUsersBuilder.setNeutralButton("Clear all", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        for (int i = 0; i < checkedItems.length; i++) {
+                            checkedItems[i] = false;
+                            usersSelectedItemes.clear();
+                        }
+                    }
+                });
+
+                AlertDialog mDialog = assignUsersBuilder.create();
+                mDialog.show();
+
+            }
+        });
+        //--------------------------------------------------------------------------------------------
     }
 
 
@@ -68,12 +145,10 @@ public class CreateChoreActivity extends AppCompatActivity {
             choreResources[2] = choreResource3.getText().toString();
             ChoreManager manager = ChoreManager.getInstance();
             Chore2 chore = new Chore2(choreTitle.getText().toString(),
-                    choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources,status);
+                    choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources,status, listOfUserNamesSelected);
             manager.addChore(chore);
             finish();
         }
-
-
     }
 
 

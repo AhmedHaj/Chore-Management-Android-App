@@ -8,12 +8,12 @@ public class Chore2 {
     private String choreTitle = " ";
     private String choreDescription = " ";
     private String[] choreResources = {"", "", ""};
-    private String[] assignedUsers = {"", "", ""};
+    private String[] assignedUsers = {};
     private int choreReward = 0;
     private boolean status = false;
 
 
-    public Chore2(String choreTitle, String choreDescription, int choreReward, String[] choreResources,boolean status) {
+    public Chore2(String choreTitle, String choreDescription, int choreReward, String[] choreResources,boolean status, String[] assignedUsers) {
         //to be added as last parameter  String[] assignedUsers
         this.choreTitle = choreTitle;
         this.choreDescription = choreDescription;
