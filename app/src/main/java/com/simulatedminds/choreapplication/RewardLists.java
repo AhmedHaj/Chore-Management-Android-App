@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,8 @@ public class RewardLists extends Fragment {
     //array of points
     String[] points = new String[userData.getUserSize()];
 
+    ItemAdapter itemAdapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class RewardLists extends Fragment {
         }
 
         //ItemAdapter class
-        ItemAdapter itemAdapter = new ItemAdapter(getActivity(), users, points);
+        itemAdapter = new ItemAdapter(getActivity(), users, points);
         userListView.setAdapter(itemAdapter);
 
         //resetButton
@@ -59,16 +62,14 @@ public class RewardLists extends Fragment {
                 for(int i=0;i<userData.getUserSize();i++){
                     userData.getUserAt(i).setUserPoints(0);
                 }
+                for (int i=0;i<userData.getUserSize();i++){
+                    users[i] = userData.getUserAt(i).getUserName();
+                    points[i] = String.valueOf(userData.getUserAt(i).getUserPoints());
+                }
+                ItemAdapter itemAdapter2 = new ItemAdapter(getActivity(), users, points);
+                userListView.setAdapter(itemAdapter2);
             }
-        });
+        });}
 
-       /** //When its clicked
-        userListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent showDetailActivity = new Intent(getActivity(), EditUserActivity.class);
-        startActivity(showDetailActivity);
-        }
-        });**/
-    }
+
 }
