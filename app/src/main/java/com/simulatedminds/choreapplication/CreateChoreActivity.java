@@ -147,6 +147,21 @@ public class CreateChoreActivity extends AppCompatActivity {
             Chore2 chore = new Chore2(choreTitle.getText().toString(),
                     choreDescription.getText().toString(), Integer.parseInt(customReward.getText().toString()), choreResources,status, listOfUserNamesSelected);
             manager.addChore(chore);
+            UserManager userManager = UserManager.getInstance();
+            if (status){
+                String string = "";
+                for(int i = 0; i < listOfUserNamesSelected.length; i++){
+                    for(int j = 0; j < userManager.getUserSize(); j++) {
+                        if(userManager.getUserAt(j).getUserName().equals(listOfUserNamesSelected[i])) {
+                            userManager.getUserAt(j).setUserPoints(userManager.getUserAt(j).getUserPoints() + chore.getChoreReward());
+                            string += userManager.getUserAt(j).getUserName() + "\n";
+                        }
+                    }
+                }
+                string += "were awarded: "+ Integer.toString(chore.getChoreReward());
+                Toast.makeText(this, string, Toast.LENGTH_LONG).show(); //a way to print in an emulator
+            }
+
             finish();
         }
     }

@@ -34,7 +34,9 @@ public class ChoreEditorActivity extends AppCompatActivity {
     Button assignUsers;
     String[] listOfUserNames;
     String[] listOfUserNamesSelected;
+    String[] listOfUsersAssigned;
     boolean[] checkedItems;
+    int choreMark = 0;
     ArrayList<Integer> usersSelectedItemes = new ArrayList<>();
 
     @Override
@@ -59,6 +61,11 @@ public class ChoreEditorActivity extends AppCompatActivity {
 
         //Getting corresponding Recipe
         chore = ChoreManager.getInstance().getChoreAt(choreIndex);
+        if (chore.getStatus()){
+            choreMark = 1;
+        } else {
+            choreMark = 0;
+        }
 
         //Updating contents in this screen
         choreName.setText(chore.getChoreTitle());
@@ -189,6 +196,34 @@ public class ChoreEditorActivity extends AppCompatActivity {
                 if(choreName.getText().toString().equals("") || rewardNotAnInteger){ //need to figure out how to make this exception
                     if(choreName.getText().toString().equals(""))
                         Toast.makeText(getApplicationContext(), "You have to have at least a chore title!", Toast.LENGTH_LONG).show(); //a way to print in an emulator
+                }
+
+                if (chore.getStatus() && choreMark == 0){
+                    String string = "";
+                    listOfUsersAssigned = new String[chore.getAssignedUsers().length];
+                    listOfUsersAssigned = chore.getAssignedUsers();
+                    for(int i = 0; i < listOfUsersAssigned.length; i++){
+                        for(int j = 0; j < userManager.getUserSize(); j++) {
+                            if(userManager.getUserAt(j).getUserName().equals(listOfUsersAssigned[i])) {
+                                userManager.getUserAt(j).setUserPoints(userManager.getUserAt(j).getUserPoints() + chore.getChoreReward());
+                                string += userManager.getUserAt(j).getUserName() + "\n";
+                            }
+                        }
+                    }
+                    string += "were awarded: "+ Integer.toString(chore.getChoreReward());
+                } else if(!chore.getStatus() && choreMark == 1){
+                    String string = "";
+                    listOfUsersAssigned = new String[chore.getAssignedUsers().length];
+                    listOfUsersAssigned = chore.getAssignedUsers();
+                    for(int i = 0; i < listOfUsersAssigned.length; i++){
+                        for(int j = 0; j < userManager.getUserSize(); j++) {
+                            if(userManager.getUserAt(j).getUserName().equals(listOfUsersAssigned[i])) {
+                                userManager.getUserAt(j).setUserPoints(userManager.getUserAt(j).getUserPoints() - chore.getChoreReward());
+                                string += userManager.getUserAt(j).getUserName() + "\n";
+                            }
+                        }
+                    }
+                    string += "were awarded: "+ Integer.toString(chore.getChoreReward());
                 }
 
                 finish();
